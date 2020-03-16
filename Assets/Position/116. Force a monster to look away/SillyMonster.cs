@@ -23,7 +23,7 @@ public class SillyMonster : MonoBehaviour
     private void SearchForPlayer()
     {
         var vectorToPlayer = _player.transform.position - transform.position;
-        var expectedDot = Mathf.Cos(180f - _viewAngle);
+        var expectedDot = Mathf.Cos((_viewAngle / 2) * Mathf.PI / 180);
         var actualDot = Vector2.Dot(transform.up.normalized, vectorToPlayer.normalized);
         Debug.Log("actual dot" + actualDot + ", expected dot " + expectedDot);
         if (actualDot >= expectedDot)
